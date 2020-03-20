@@ -1,0 +1,45 @@
+<div class="p-3 container">
+  <label for="">Name</label>
+  <input 
+    type="text"
+    name="name"
+    [(ngModel)]="productName"
+    class="form-control"
+  >
+
+  <label for="">Id</label>
+  <input 
+    type="text"
+    name="id"
+    [(ngModel)]="productId"
+    class="form-control"
+  >
+
+  <button (click)="onAddProduct()" class="btn btn-outline-success btn-sm">Add product</button>
+<hr>
+<br>
+
+<div class="row">
+
+  <div class="col-md-5">
+    <div *ngFor="let product of productItems">
+
+      <a
+        [routerLink]="['/users', product.id, product.name]"
+        href="#"
+        class="list-group-item"
+        *ngIf="product && product.id"
+      >
+        {{ product.name }} {{ product.id}}
+    </a>
+
+    </div>
+  </div>
+
+  <div class="col-md-7">
+    <router-outlet
+    (deleteProduct)="onRootEvent($event)"
+    ></router-outlet>
+  </div>
+</div>
+</div>

@@ -1,0 +1,12 @@
+{
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.tabWidth": 4,
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true,
+  "prettier.useTabs": true,
+
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "vscode.tsc.compiler.alertTSConfigChanges": "never"
+}

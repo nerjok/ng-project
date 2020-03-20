@@ -1,0 +1,19 @@
+<p>edit-prodct works!</p>
+
+<label for="">Name</label>
+<input 
+  type="text"
+  name="name"
+  [(ngModel)]="user.name"
+  class="form-control"
+>
+
+<label for="">Id</label>
+<input 
+  type="text"
+  name="id"
+  [(ngModel)]="user.id"
+  class="form-control"
+>
+
+<button (click)="onEditProduct()" class="btn btn-outline-success btn-sm">Edit product</button>

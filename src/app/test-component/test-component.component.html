@@ -1,0 +1,26 @@
+<p>test-component works!</p>
+<div class="row">
+  <div class="col md-12">
+
+    <button (click)="onEvClick()">Click To Alert</button>
+
+    {{ paragraph.nativeElement.textContent }}
+    {{ name }}
+    <label>ServerName</label>
+    <input
+      type="text"
+      class="form-control"
+      #serverNameInput
+    >
+
+    <label>Description text</label>
+    <input
+      type="text"
+      class="form-control"
+      #serverContentInput
+    >
+
+    <br>
+    <ng-content></ng-content>
+  </div>
+</div>
