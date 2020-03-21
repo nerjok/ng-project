@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService, AuthResponseData } from './auth.service';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { AdDirective } from '../shared/ad.directive';
+import { AlertComponent } from '../shared/alert/alert.component';
 
 
 
@@ -18,8 +20,14 @@ export class AuthComponent implements OnInit {
   error: string = null;
   signupForm: FormGroup;
 
+  @ViewChild(AdDirective, { static: false }) alertHost: AdDirective;
+  private closeSub: Subscription;
+
+
+
   constructor(private authService: AuthService,
-              private router: Router) { }
+              private router: Router,
+              private componentFactoryResolver: ComponentFactoryResolver) { }
 
   onSwitchMode() {
     this.isLoginMode = !this.isLoginMode;
@@ -39,7 +47,7 @@ export class AuthComponent implements OnInit {
     }
     this.isLoading = true;
     this.error = '';
-    
+
     const email = form.value.email;
     const password = form.value.password;
 
@@ -62,5 +70,31 @@ export class AuthComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  showModal(){
+    this.displayModal();
+  }
+
+  private displayModal(message: string = 'message') {
+    // Render Component Dynamicaly angular approach
+
+    const alertCmpFactory = this.componentFactoryResolver.resolveComponentFactory(
+      AlertComponent
+    );
+    const hostViewContainerRef = this.alertHost.viewContainerRef;
+    hostViewContainerRef.clear();
+
+    const componentRef = hostViewContainerRef.createComponent(alertCmpFactory);
+
+    componentRef.instance.message = message;
+    this.closeSub = componentRef.instance.close.subscribe(() => {
+      this.closeSub.unsubscribe();
+      hostViewContainerRef.clear();
+    });
+  }
+
+  onHandleError() {
+    this.error = null;
   }
 }

@@ -1,3 +1,9 @@
+<ng-template ad-host></ng-template>
+<app-alert
+  [message]="error"
+  *ngIf="error"
+  (close)="onHandleError()"
+></app-alert> 
 
 <div class="container">
   <div class="row">
@@ -57,6 +63,13 @@
         </button>
 
       </form>
+      <button
+        class="btn btn-primary"
+        type="button"
+        (click)="showModal()"
+      >
+        ShowModal
+      </button>
     </div>
   </div>
 </div>

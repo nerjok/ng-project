@@ -18,6 +18,8 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { AuthComponent } from './auth/auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
+import { AlertComponent } from './shared/alert/alert.component';
+import { AdDirective } from './shared/ad.directive';
 
 
 @NgModule({
@@ -32,14 +34,16 @@ import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinne
     TemplateFormComponent,
     ReactiveFormComponent,
     AuthComponent,
-    LoadingSpinnerComponent
+    LoadingSpinnerComponent,
+    AlertComponent,
+    AdDirective
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [ProductsResolver, ProductsService],
   bootstrap: [AppComponent]

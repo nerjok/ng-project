@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { throwError, Observable, BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { User } from './ser.model';
+import { User } from './user.model';
 
 
 const FIREBASE_SIGNUP =

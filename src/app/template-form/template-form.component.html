@@ -1,5 +1,3 @@
-<p>template-form works!</p>
-
 <div class="container">
   <div class="row">
 
@@ -9,7 +7,6 @@
         (ngSubmit)="onSubmit()"
         #f="ngForm"
       >
-
         <div class="form-group">
           <label for="title">Title</label>
           <input 
@@ -61,6 +58,38 @@
       </div>
       <p *ngIf="!userData.valid && userData.touched">User Data is invalid!</p>
 
+      <div class="radio" *ngFor="let gender of genders">
+        <label>
+          <input
+            type="radio"
+            name="gender"
+            ngModel
+            [value]="gender"
+            [(ngModel)]="defaultGender"
+            required>
+          {{ gender }}
+        </label>
+      </div>
+
+      <div class="form-group">
+        <textarea
+          name="questionAnswer"
+          rows="3"
+          class="form-control"
+          [(ngModel)]="answer"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="secret">Secret Questions</label>
+        <select
+          id="secret"
+          class="form-control"
+          [ngModel]="defaultQuestion"
+          name="secret">
+          <option value="pet">Your first Pet?</option>
+          <option value="teacher">Your first teacher?</option>
+        </select>
+      </div>
 
         <button
           class="btn btn-primary"
@@ -76,9 +105,12 @@
       <div class="row" *ngIf="submitted">
         <div class="col-xs-12">
           <h3>Your Data</h3>
-          <p>Username: {{ user.name }}</p>
-          <p>Title: {{ user.title }}</p>
-          <p>Description: {{ user.description }}</p>
+          <p><b>Username:</b> {{ user.name }}</p>
+          <p><b>Title:</b> {{ user.title }}</p>
+          <p><b>Description:</b> {{ user.description }}</p>
+          <p><b>Gender:</b> {{ user.gender }}</p>
+          <p><b>Answer:</b> {{ user.answer }}</p>
+          <p><b>Qestion:</b> {{ user.question }}</p>
         </div>
       </div>
     </div>
