@@ -2,9 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
 
-## Ro se demo app 
+## To see demo app 
 
-`https://ng-leans.firebaseapp.com/users`
+[Demo app link](https://ng-leans.firebaseapp.com/users)
 
 ## Development server
 
