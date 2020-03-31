@@ -20,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 import { AlertComponent } from './shared/alert/alert.component';
 import { AdDirective } from './shared/ad.directive';
-
+import { StoreModule } from '@ngrx/store';
+import { twoReducer } from './two/two.reducer';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { AdDirective } from './shared/ad.directive';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({twoItems: twoReducer})
   ],
   providers: [ProductsResolver, ProductsService],
   bootstrap: [AppComponent]

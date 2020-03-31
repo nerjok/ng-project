@@ -34,6 +34,12 @@
     </a>
 
     </div>
+
+    <div
+    *ngFor="let item of (items | async).items"
+    >
+    {{ item.title }}
+    </div>
   </div>
 
   <div class="col-md-7">
